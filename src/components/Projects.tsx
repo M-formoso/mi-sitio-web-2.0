@@ -11,6 +11,10 @@ import projectModule3 from '@/assets/project1-module3.png';
 import projectModule4 from '@/assets/project1-module4.png';
 import projectInstitutional from '@/assets/project-institutional.jpg';
 import projectEcommerce from '@/assets/project-ecommerce.jpg';
+import larrosaHome from '@/assets/larrosa-home.png';
+import larrosaVehicles from '@/assets/larrosa-vehicles.png';
+import larrosaDashboard from '@/assets/larrosa-dashboard.png';
+import larrosaVehiclesAdmin from '@/assets/larrosa-vehicles-admin.png';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -44,6 +48,16 @@ const Projects = () => {
       images: [projectEcommerce],
       tags: ["WordPress", "HTML5", "CSS", "Hosting", "E-commerce"],
       demoUrl: "https://morelattolanas.com",
+      githubUrl: "#",
+      featured: false,
+    },
+    {
+      id: 4,
+      title: "Larrosa Camiones - Sistema de Gestión de Vehículos",
+      description: "Sistema integral de gestión para concesionaria de camiones que incluye sitio web público con catálogo de vehículos disponibles, filtros avanzados de búsqueda, y panel de administración completo. El sistema permite gestionar inventario, subir imágenes, controlar estados de vehículos (disponible/reservado), generar estadísticas y exportar datos. Implementa autenticación segura y dashboard con métricas en tiempo real.",
+      images: [larrosaHome, larrosaVehicles, larrosaDashboard, larrosaVehiclesAdmin],
+      tags: ["React", "Node.js", "PostgreSQL", "TypeScript", "Authentication", "Admin Panel"],
+      demoUrl: "#",
       githubUrl: "#",
       featured: false,
     },
