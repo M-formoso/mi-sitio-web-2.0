@@ -171,26 +171,6 @@ const Experience = () => {
           </div>
         </div>
 
-        {/* Bottom CTA */}
-        <div className="text-center mt-16">
-          <div className="glass rounded-2xl p-8 max-w-2xl mx-auto">
-            <h3 className="text-2xl font-bold text-gradient mb-4">
-              Stack Completo, Soluciones Completas
-            </h3>
-            <p className="text-text-secondary mb-6">
-              Desde el diseño de la base de datos hasta la interfaz de usuario final, 
-              puedo gestionar el ciclo completo de desarrollo de aplicaciones web.
-            </p>
-            <div className="flex justify-center">
-              <button
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-gradient-to-r from-primary to-secondary text-white px-8 py-3 rounded-full font-medium hover:scale-105 transition-transform duration-300 shadow-xl hover:shadow-2xl"
-              >
-                Hablemos de tu Proyecto
-              </button>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
   );
