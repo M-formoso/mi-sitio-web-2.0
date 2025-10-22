@@ -26,7 +26,7 @@ const Experience = () => {
       icon: Database,
       title: 'Bases de Datos',
       description: 'Modelado de datos, optimización de queries y gestión de bases de datos relacionales y no relacionales.',
-      technologies: ['MySQL', 'MongoDB', 'SQL', 'Database Design', 'Query Optimization'],
+      technologies: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQL', 'Database Design', 'Query Optimization'],
       gradient: 'from-purple-400 to-pink-500',
     },
     {
@@ -47,6 +47,14 @@ const Experience = () => {
     },
     {
       id: 6,
+      icon: Server,
+      title: 'DevOps & Infraestructura',
+      description: 'Configuración y gestión de servidores, despliegue de aplicaciones y administración de infraestructura en la nube.',
+      technologies: ['AWS', 'Linux', 'Docker', 'Nginx', 'Cloud Services'],
+      gradient: 'from-indigo-400 to-blue-500',
+    },
+    {
+      id: 7,
       icon: GitBranch,
       title: 'Control de Versiones',
       description: 'Gestión de código fuente, branching strategies y colaboración en equipos de desarrollo.',
