@@ -132,7 +132,7 @@ const Experience = () => {
               >
                 <CardContent className="p-6">
                   {/* Logo */}
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${area.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg p-2`}>
+                  <div className="w-14 h-14 flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
                     <img src={area.logo} alt={area.title} className="w-full h-full object-contain" />
                   </div>
 
