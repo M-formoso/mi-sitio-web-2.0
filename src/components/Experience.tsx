@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Code, Database, Globe, Server, Palette, Shield, GitBranch, Terminal } from 'lucide-react';
+import { Code, Database, Globe, Server, Palette, Shield, GitBranch, Terminal, Bot, Workflow } from 'lucide-react';
 
 const Experience = () => {
   const expertise = [
@@ -50,11 +50,27 @@ const Experience = () => {
       icon: Server,
       title: 'DevOps & Infraestructura',
       description: 'Configuración y gestión de servidores, despliegue de aplicaciones y administración de infraestructura en la nube.',
-      technologies: ['AWS', 'Linux', 'Docker', 'Nginx', 'Cloud Services'],
+      technologies: ['AWS', 'Linux', 'Docker', 'Nginx', 'n8n', 'Cloud Services'],
       gradient: 'from-indigo-400 to-blue-500',
     },
     {
       id: 7,
+      icon: Workflow,
+      title: 'Automatización de Procesos',
+      description: 'Diseño y creación de flujos de trabajo automatizados para optimizar procesos empresariales.',
+      technologies: ['n8n', 'Workflow Automation', 'API Integration', 'Process Optimization'],
+      gradient: 'from-teal-400 to-cyan-500',
+    },
+    {
+      id: 8,
+      icon: Bot,
+      title: 'IA & Herramientas de Desarrollo',
+      description: 'Integración de inteligencia artificial y herramientas modernas para acelerar el desarrollo.',
+      technologies: ['Claude', 'GitHub Copilot', 'Vercel', 'Lovable'],
+      gradient: 'from-violet-400 to-purple-500',
+    },
+    {
+      id: 9,
       icon: GitBranch,
       title: 'Control de Versiones',
       description: 'Gestión de código fuente, branching strategies y colaboración en equipos de desarrollo.',
