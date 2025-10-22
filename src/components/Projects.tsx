@@ -55,10 +55,10 @@ const Projects = () => {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
-            Mis Proyectos
+            Proyectos Desarrollados
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">
-            Una muestra de mi trabajo reciente y las tecnologías que domino
+            Soluciones reales implementadas con diferentes tecnologías y arquitecturas
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 rounded-full"></div>
         </div>

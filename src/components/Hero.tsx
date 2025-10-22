@@ -73,12 +73,11 @@ const Hero = () => {
               </span>
             </h1>
             <h2 className="text-2xl md:text-3xl text-text-secondary mb-6 font-light">
-              Desarrollador Web{' '}
-              <span className="text-primary font-semibold">Full Stack</span>
+              <span className="text-primary font-semibold">Full Stack Developer</span> & Problem Solver
             </h2>
-            <p className="text-xl text-text-muted max-w-2xl mx-auto mb-8 leading-relaxed">
-              Comprometido con crear tecnología que deje huella, resuelva problemas reales 
-              y transforme el presente en futuro.
+            <p className="text-xl text-text-muted max-w-2xl mx-auto mb-8 leading-relaxed font-mono">
+              Especializado en arquitectura de sistemas, desarrollo web y soluciones empresariales. 
+              Transformo ideas complejas en código funcional y escalable.
             </p>
             <p className="text-text-secondary font-mono mb-8">
               {'</hello_world>'}
@@ -141,13 +140,13 @@ const Hero = () => {
 
       {/* Floating Code Elements */}
       <div className="absolute top-20 left-10 text-primary/30 font-mono text-sm animate-float opacity-70">
-        const developer = "creative";
+        {'// Angular + Python + MySQL'}
       </div>
       <div className="absolute top-40 right-20 text-secondary/30 font-mono text-sm animate-float delay-1000 opacity-70">
-        function solve(problems) {'{}'}
+        {'class Developer { solveProblems() }'}
       </div>
       <div className="absolute bottom-40 left-20 text-accent/30 font-mono text-sm animate-float delay-2000 opacity-70">
-        return innovation();
+        {'> git commit -m "build solutions"'}
       </div>
     </section>
   );
