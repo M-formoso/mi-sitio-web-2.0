@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { MapPin, Mail, Phone, MessageCircle } from 'lucide-react';
+import ScrollReveal from '@/components/ui/scroll-reveal';
 
 const Contact = () => {
   const contactInfo = [
@@ -35,11 +36,28 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
-            Contacto
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <ScrollReveal 
+              baseOpacity={0.2} 
+              enableBlur={true} 
+              baseRotation={2} 
+              blurStrength={6}
+              containerClassName="text-gradient"
+              textClassName="text-4xl md:text-5xl font-bold"
+            >
+              Contacto
+            </ScrollReveal>
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">
-            ¿Tienes un proyecto en mente? ¡Hablemos!
+            <ScrollReveal 
+              baseOpacity={0.1} 
+              enableBlur={true} 
+              baseRotation={1} 
+              blurStrength={4}
+              textClassName="text-xl"
+            >
+              ¿Tienes un proyecto en mente? ¡Hablemos!
+            </ScrollReveal>
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 rounded-full"></div>
         </div>

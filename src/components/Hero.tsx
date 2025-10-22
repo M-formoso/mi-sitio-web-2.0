@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
+import VariableProximity from '@/components/ui/variable-proximity';
+import ScrollReveal from '@/components/ui/scroll-reveal';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -60,18 +62,40 @@ const Hero = () => {
               {'<hello_world>'}
             </p>
             <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-              Hola, soy{' '}
-              <span className="text-gradient animate-pulse-glow">
-                Mateo Formoso
-              </span>
+              <VariableProximity
+                label="Hola, soy Mateo Formoso"
+                containerRef={heroRef}
+                fromFontVariationSettings="'wght' 400"
+                toFontVariationSettings="'wght' 900"
+                radius={150}
+                className="text-gradient"
+              />
             </h1>
             <h2 className="text-2xl md:text-3xl text-text-secondary mb-6 font-light">
-              <span className="text-primary font-semibold">Full Stack Developer</span> & Problem Solver
+              <span className="inline-block">
+                <ScrollReveal 
+                  baseOpacity={0.2} 
+                  enableBlur={true} 
+                  baseRotation={2} 
+                  blurStrength={6}
+                  containerClassName="inline-block"
+                  textClassName="text-2xl md:text-3xl font-light"
+                >
+                  Full Stack Developer & Problem Solver
+                </ScrollReveal>
+              </span>
             </h2>
-            <p className="text-xl text-text-muted max-w-2xl mx-auto mb-8 leading-relaxed font-mono">
-              Especializado en arquitectura de sistemas, desarrollo web y soluciones empresariales. 
-              Transformo ideas complejas en código funcional y escalable.
-            </p>
+            <div className="text-xl text-text-muted max-w-2xl mx-auto mb-8 leading-relaxed font-mono">
+              <ScrollReveal 
+                baseOpacity={0.1} 
+                enableBlur={true} 
+                baseRotation={1} 
+                blurStrength={4}
+                textClassName="text-xl leading-relaxed"
+              >
+                Especializado en arquitectura de sistemas, desarrollo web y soluciones empresariales. Transformo ideas complejas en código funcional y escalable.
+              </ScrollReveal>
+            </div>
             <p className="text-text-secondary font-mono mb-8">
               {'</hello_world>'}
             </p>

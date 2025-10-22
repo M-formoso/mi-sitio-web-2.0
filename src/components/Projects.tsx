@@ -3,6 +3,7 @@ import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github, Eye } from 'lucide-react';
+import ScrollReveal from '@/components/ui/scroll-reveal';
 import projectManagement from '@/assets/project-management-system.jpg';
 import projectInstitutional from '@/assets/project-institutional.jpg';
 import projectEcommerce from '@/assets/project-ecommerce.jpg';
@@ -54,11 +55,28 @@ const Projects = () => {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gradient">
-            Proyectos Desarrollados
+          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <ScrollReveal 
+              baseOpacity={0.2} 
+              enableBlur={true} 
+              baseRotation={2} 
+              blurStrength={6}
+              containerClassName="text-gradient"
+              textClassName="text-4xl md:text-5xl font-bold"
+            >
+              Proyectos Desarrollados
+            </ScrollReveal>
           </h2>
           <p className="text-xl text-text-secondary max-w-2xl mx-auto">
-            Soluciones reales implementadas con diferentes tecnologías y arquitecturas
+            <ScrollReveal 
+              baseOpacity={0.1} 
+              enableBlur={true} 
+              baseRotation={1} 
+              blurStrength={4}
+              textClassName="text-xl"
+            >
+              Soluciones reales implementadas con diferentes tecnologías y arquitecturas
+            </ScrollReveal>
           </p>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 rounded-full"></div>
         </div>
