@@ -91,60 +91,58 @@ const About = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 rounded-full"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 items-start mb-16">
-          {/* Profile & Bio */}
-          <div className="space-y-6">
-            <div className="glass rounded-2xl p-8 hover:scale-105 transition-all duration-500">
-              <div className="space-y-4 text-text-secondary leading-relaxed">
-                <p className="font-mono text-sm text-primary">
-                  {'> whoami'}
-                </p>
-                <p>
-                  Desarrollador especializado en <span className="text-primary font-semibold">sistemas de gestión empresarial</span> y 
-                  aplicaciones web full stack. Mi enfoque está en crear soluciones técnicas robustas que resuelvan problemas reales del negocio.
-                </p>
-                <p>
-                  Formación en <span className="text-secondary font-semibold">Ingeniería de Software</span> en UTN, 
-                  complementada con experiencia práctica desarrollando proyectos reales para clientes desde el inicio de mi carrera.
-                </p>
-                <p className="font-mono text-sm text-accent">
-                  {'> skills --list'}
-                </p>
-              </div>
+        {/* Bio Section */}
+        <div className="max-w-3xl mx-auto mb-16">
+          <div className="glass rounded-2xl p-8 hover:scale-[1.02] transition-all duration-500">
+            <div className="space-y-4 text-text-secondary leading-relaxed">
+              <p className="font-mono text-sm text-primary">
+                {'> whoami'}
+              </p>
+              <p className="text-lg">
+                Desarrollador especializado en <span className="text-primary font-semibold">sistemas de gestión empresarial</span> y 
+                aplicaciones web full stack. Mi enfoque está en crear soluciones técnicas robustas que resuelvan problemas reales del negocio.
+              </p>
+              <p className="text-lg">
+                Formación en <span className="text-secondary font-semibold">Ingeniería de Software</span> en UTN, 
+                complementada con experiencia práctica desarrollando proyectos reales para clientes desde el inicio de mi carrera.
+              </p>
+              <p className="font-mono text-sm text-accent">
+                {'> skills --list'}
+              </p>
             </div>
           </div>
+        </div>
 
-          {/* Technical Skills Grid */}
-          <div>
-            <h3 className="text-2xl font-bold mb-6 text-gradient flex items-center">
-              <Code2 className="w-6 h-6 mr-3" />
-              Stack Tecnológico
-            </h3>
-            
-            <div className="grid grid-cols-2 gap-3">
-              {technicalSkills.map((skill, index) => (
-                <Card 
-                  key={skill.name}
-                  className="glass border-white/10 hover:border-primary/30 transition-all duration-300 hover:scale-105 group"
-                  style={{ animationDelay: `${index * 50}ms` }}
-                >
-                  <CardContent className="p-4">
-                    <div className={`text-xs font-mono mb-1 bg-gradient-to-r ${getCategoryColor(skill.category)} bg-clip-text text-transparent`}>
-                      {skill.category}
-                    </div>
-                    <div className="text-text-primary font-semibold mb-2 group-hover:text-primary transition-colors">
-                      {skill.name}
-                    </div>
-                    <Badge 
-                      variant="outline" 
-                      className={`text-xs ${getLevelColor(skill.level)} border`}
-                    >
-                      {skill.level}
-                    </Badge>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+        {/* Technical Skills Grid */}
+        <div className="mb-16">
+          <h3 className="text-2xl font-bold mb-8 text-gradient text-center flex items-center justify-center">
+            <Code2 className="w-6 h-6 mr-3" />
+            Stack Tecnológico
+          </h3>
+          
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {technicalSkills.map((skill, index) => (
+              <Card 
+                key={skill.name}
+                className="glass border-white/10 hover:border-primary/30 transition-all duration-300 hover:scale-105 group"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <CardContent className="p-4">
+                  <div className={`text-xs font-mono mb-1 bg-gradient-to-r ${getCategoryColor(skill.category)} bg-clip-text text-transparent`}>
+                    {skill.category}
+                  </div>
+                  <div className="text-text-primary font-semibold mb-2 group-hover:text-primary transition-colors">
+                    {skill.name}
+                  </div>
+                  <Badge 
+                    variant="outline" 
+                    className={`text-xs ${getLevelColor(skill.level)} border`}
+                  >
+                    {skill.level}
+                  </Badge>
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
 
