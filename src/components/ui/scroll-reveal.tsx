@@ -22,13 +22,13 @@ const ScrollReveal = ({
   children,
   scrollContainerRef,
   enableBlur = true,
-  baseOpacity = 0.1,
-  baseRotation = 3,
-  blurStrength = 4,
+  baseOpacity = 0.05,
+  baseRotation = 8,
+  blurStrength = 10,
   containerClassName = '',
   textClassName = '',
-  rotationEnd = 'bottom bottom',
-  wordAnimationEnd = 'bottom bottom'
+  rotationEnd = 'center center',
+  wordAnimationEnd = 'center center'
 }: ScrollRevealProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
@@ -72,15 +72,15 @@ const ScrollReveal = ({
       wordElements,
       { opacity: baseOpacity, willChange: 'opacity' },
       {
-        ease: 'none',
+        ease: 'power2.out',
         opacity: 1,
-        stagger: 0.05,
+        stagger: 0.08,
         scrollTrigger: {
           trigger: el,
           scroller,
-          start: 'top bottom-=20%',
+          start: 'top bottom-=10%',
           end: wordAnimationEnd,
-          scrub: true
+          scrub: 1
         }
       }
     );
@@ -90,15 +90,15 @@ const ScrollReveal = ({
         wordElements,
         { filter: `blur(${blurStrength}px)` },
         {
-          ease: 'none',
+          ease: 'power2.out',
           filter: 'blur(0px)',
-          stagger: 0.05,
+          stagger: 0.08,
           scrollTrigger: {
             trigger: el,
             scroller,
-            start: 'top bottom-=20%',
+            start: 'top bottom-=10%',
             end: wordAnimationEnd,
-            scrub: true
+            scrub: 1
           }
         }
       );
