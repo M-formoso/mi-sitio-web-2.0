@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Github, Linkedin, Mail, ExternalLink } from 'lucide-react';
-import heroBackground from '@/assets/hero-bg.jpg';
 
 const Hero = () => {
   const heroRef = useRef<HTMLDivElement>(null);
@@ -37,12 +36,6 @@ const Hero = () => {
       id="home"
       ref={heroRef}
       className="min-h-screen flex items-center justify-center relative overflow-hidden animated-bg"
-      style={{
-        backgroundImage: `url(${heroBackground})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundBlendMode: 'overlay',
-      }}
     >
       {/* Interactive Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

@@ -2,7 +2,6 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Code2, Brain, Target, Users, Zap, BookOpen } from 'lucide-react';
-import profileAvatar from '@/assets/profile-avatar.jpg';
 
 const About = () => {
   const technicalSkills = [
@@ -96,15 +95,6 @@ const About = () => {
           {/* Profile & Bio */}
           <div className="space-y-6">
             <div className="glass rounded-2xl p-8 hover:scale-105 transition-all duration-500">
-              <div className="relative mb-6">
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 rounded-xl blur-xl"></div>
-                <img
-                  src={profileAvatar}
-                  alt="Mateo Formoso"
-                  className="relative w-full max-w-sm mx-auto rounded-xl shadow-2xl"
-                />
-              </div>
-              
               <div className="space-y-4 text-text-secondary leading-relaxed">
                 <p className="font-mono text-sm text-primary">
                   {'> whoami'}
