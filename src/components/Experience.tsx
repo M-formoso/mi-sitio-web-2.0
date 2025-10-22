@@ -1,13 +1,22 @@
 import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Code, Database, Globe, Server, Palette, Shield, GitBranch, Terminal, Bot, Workflow } from 'lucide-react';
+import { Shield, Terminal } from 'lucide-react';
+import reactLogo from '@/assets/logos/react-logo.svg';
+import nodejsLogo from '@/assets/logos/nodejs-logo.svg';
+import postgresqlLogo from '@/assets/logos/postgresql-logo.svg';
+import webLogo from '@/assets/logos/web-logo.svg';
+import figmaLogo from '@/assets/logos/figma-logo.svg';
+import awsLogo from '@/assets/logos/aws-logo.svg';
+import n8nLogo from '@/assets/logos/n8n-logo.png';
+import aiLogo from '@/assets/logos/ai-logo.svg';
+import gitLogo from '@/assets/logos/git-logo.svg';
 
 const Experience = () => {
   const expertise = [
     {
       id: 1,
-      icon: Code,
+      logo: reactLogo,
       title: 'Desarrollo Frontend',
       description: 'Experiencia en frameworks modernos con enfoque en componentes reutilizables, state management y arquitectura escalable.',
       technologies: ['Angular', 'React', 'TypeScript', 'HTML5/CSS3', 'Responsive Design'],
@@ -15,7 +24,7 @@ const Experience = () => {
     },
     {
       id: 2,
-      icon: Server,
+      logo: nodejsLogo,
       title: 'Desarrollo Backend',
       description: 'Diseño e implementación de APIs RESTful, lógica de negocio y arquitectura de servicios.',
       technologies: ['Python', 'FastAPI', 'Node.js', 'Java', 'API Design'],
@@ -23,7 +32,7 @@ const Experience = () => {
     },
     {
       id: 3,
-      icon: Database,
+      logo: postgresqlLogo,
       title: 'Bases de Datos',
       description: 'Modelado de datos, optimización de queries y gestión de bases de datos relacionales y no relacionales.',
       technologies: ['MySQL', 'PostgreSQL', 'MongoDB', 'SQL', 'Database Design', 'Query Optimization'],
@@ -31,7 +40,7 @@ const Experience = () => {
     },
     {
       id: 4,
-      icon: Globe,
+      logo: webLogo,
       title: 'Sistemas de Gestión',
       description: 'Desarrollo de aplicaciones empresariales completas con módulos integrados de inventario, clientes y reportes.',
       technologies: ['ERP Systems', 'Business Logic', 'Reporting', 'Process Automation'],
@@ -39,7 +48,7 @@ const Experience = () => {
     },
     {
       id: 5,
-      icon: Palette,
+      logo: figmaLogo,
       title: 'UI/UX Design',
       description: 'Creación de interfaces intuitivas y atractivas con foco en experiencia de usuario y accesibilidad.',
       technologies: ['User Interface', 'User Experience', 'Prototyping', 'Design Systems'],
@@ -47,7 +56,7 @@ const Experience = () => {
     },
     {
       id: 6,
-      icon: Server,
+      logo: awsLogo,
       title: 'DevOps & Infraestructura',
       description: 'Configuración y gestión de servidores, despliegue de aplicaciones y administración de infraestructura en la nube.',
       technologies: ['AWS', 'Linux', 'Docker', 'Nginx', 'n8n', 'Cloud Services'],
@@ -55,7 +64,7 @@ const Experience = () => {
     },
     {
       id: 7,
-      icon: Workflow,
+      logo: n8nLogo,
       title: 'Automatización de Procesos',
       description: 'Diseño y creación de flujos de trabajo automatizados para optimizar procesos empresariales.',
       technologies: ['n8n', 'Workflow Automation', 'API Integration', 'Process Optimization'],
@@ -63,7 +72,7 @@ const Experience = () => {
     },
     {
       id: 8,
-      icon: Bot,
+      logo: aiLogo,
       title: 'IA & Herramientas de Desarrollo',
       description: 'Integración de inteligencia artificial y herramientas modernas para acelerar el desarrollo.',
       technologies: ['Claude', 'GitHub Copilot', 'Vercel', 'Lovable'],
@@ -71,7 +80,7 @@ const Experience = () => {
     },
     {
       id: 9,
-      icon: GitBranch,
+      logo: gitLogo,
       title: 'Control de Versiones',
       description: 'Gestión de código fuente, branching strategies y colaboración en equipos de desarrollo.',
       technologies: ['Git', 'GitHub', 'Version Control', 'Code Review', 'CI/CD'],
@@ -115,7 +124,6 @@ const Experience = () => {
         {/* Expertise Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {expertise.map((area, index) => {
-            const Icon = area.icon;
             return (
               <Card 
                 key={area.id}
@@ -123,9 +131,9 @@ const Experience = () => {
                 style={{ animationDelay: `${index * 100}ms` }}
               >
                 <CardContent className="p-6">
-                  {/* Icon */}
-                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${area.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg`}>
-                    <Icon className="w-7 h-7 text-white" />
+                  {/* Logo */}
+                  <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${area.gradient} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg p-2`}>
+                    <img src={area.logo} alt={area.title} className="w-full h-full object-contain" />
                   </div>
 
                   {/* Title */}
