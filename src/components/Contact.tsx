@@ -1,22 +1,8 @@
-import React, { useState } from 'react';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import React from 'react';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
-import { MapPin, Mail, Phone, Send, MessageCircle, CheckCircle, AlertCircle } from 'lucide-react';
-import { useToast } from '@/hooks/use-toast';
+import { MapPin, Mail, Phone, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const { toast } = useToast();
-
   const contactInfo = [
     {
       icon: MapPin,
@@ -38,50 +24,6 @@ const Contact = () => {
     },
   ];
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-
-    try {
-      const response = await fetch("https://formspree.io/f/mblrevbl", {
-        method: "POST",
-        headers: { 
-          Accept: "application/json",
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        toast({
-          title: "¡Mensaje enviado!",
-          description: "Te responderé pronto. ¡Gracias por contactarme!",
-          className: "glass border-green-500/30",
-        });
-        setFormData({ name: '', email: '', subject: '', message: '' });
-      } else {
-        throw new Error("Error en el servidor");
-      }
-    } catch (error) {
-      toast({
-        title: "Error al enviar",
-        description: "Por favor, intenta de nuevo o contacta directamente por email.",
-        variant: "destructive",
-        className: "glass border-red-500/30",
-      });
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <section id="contact" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
@@ -102,35 +44,35 @@ const Contact = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mt-6 rounded-full"></div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+        <div className="max-w-4xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8">
             <div className="glass rounded-2xl p-8">
-              <h3 className="text-2xl font-bold text-gradient mb-6">
+              <h3 className="text-2xl font-bold text-gradient mb-6 text-center">
                 Información de Contacto
               </h3>
-              <p className="text-text-secondary mb-8 leading-relaxed">
+              <p className="text-text-secondary mb-8 leading-relaxed text-center max-w-2xl mx-auto">
                 Estoy interesado en oportunidades de trabajo freelance o posiciones de tiempo completo. 
                 Sin embargo, si tienes otra solicitud o pregunta, no dudes en contactarme.
               </p>
 
-              <div className="space-y-6">
+              <div className="grid md:grid-cols-3 gap-6 mb-8">
                 {contactInfo.map((info, index) => {
                   const Icon = info.icon;
                   return (
                     <div 
                       key={index}
-                      className="flex items-center group cursor-pointer hover:scale-105 transition-all duration-300"
+                      className="flex flex-col items-center text-center group cursor-pointer hover:scale-105 transition-all duration-300"
                       onClick={() => info.link && window.open(info.link, '_blank')}
                     >
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
-                        <Icon className="w-6 h-6 text-white" />
+                      <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
+                        <Icon className="w-8 h-8 text-white" />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-text-primary group-hover:text-primary transition-colors duration-300">
+                        <h4 className="font-semibold text-text-primary group-hover:text-primary transition-colors duration-300 mb-2">
                           {info.title}
                         </h4>
-                        <p className="text-text-secondary group-hover:text-text-primary transition-colors duration-300">
+                        <p className="text-text-secondary group-hover:text-text-primary transition-colors duration-300 text-sm">
                           {info.value}
                         </p>
                       </div>
@@ -141,7 +83,7 @@ const Contact = () => {
             </div>
 
             {/* Quick Actions */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 max-w-md mx-auto">
               <Button
                 onClick={() => window.open('mailto:mateoformoso0606@gmail.com', '_blank')}
                 className="glass border-white/20 hover:border-primary/50 text-white hover:text-primary h-16 flex flex-col items-center justify-center transition-all duration-300 hover:scale-105"
@@ -161,99 +103,6 @@ const Contact = () => {
               </Button>
             </div>
           </div>
-
-          {/* Contact Form */}
-          <Card className="glass border-white/10 hover:border-primary/30 transition-all duration-500">
-            <CardHeader>
-              <CardTitle className="text-2xl text-gradient flex items-center">
-                <Send className="w-6 h-6 mr-3" />
-                Envía un Mensaje
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="name" className="text-text-primary mb-2 block">
-                      Nombre *
-                    </Label>
-                    <Input
-                      id="name"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleInputChange}
-                      required
-                      className="glass border-white/20 focus:border-primary/50 text-white placeholder:text-text-muted"
-                      placeholder="Tu nombre"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="email" className="text-text-primary mb-2 block">
-                      Email *
-                    </Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      value={formData.email}
-                      onChange={handleInputChange}
-                      required
-                      className="glass border-white/20 focus:border-primary/50 text-white placeholder:text-text-muted"
-                      placeholder="tu@email.com"
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="subject" className="text-text-primary mb-2 block">
-                    Asunto
-                  </Label>
-                  <Input
-                    id="subject"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleInputChange}
-                    className="glass border-white/20 focus:border-primary/50 text-white placeholder:text-text-muted"
-                    placeholder="Asunto del mensaje"
-                  />
-                </div>
-
-                <div>
-                  <Label htmlFor="message" className="text-text-primary mb-2 block">
-                    Mensaje *
-                  </Label>
-                  <Textarea
-                    id="message"
-                    name="message"
-                    value={formData.message}
-                    onChange={handleInputChange}
-                    required
-                    rows={5}
-                    className="glass border-white/20 focus:border-primary/50 text-white placeholder:text-text-muted resize-none"
-                    placeholder="Cuéntame sobre tu proyecto..."
-                  />
-                </div>
-
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-primary to-secondary hover:from-primary-light hover:to-secondary-light text-white border-0 py-3 font-medium shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-3"></div>
-                      Enviando...
-                    </>
-                  ) : (
-                    <>
-                      <Send className="w-5 h-5 mr-3" />
-                      Enviar Mensaje
-                    </>
-                  )}
-                </Button>
-              </form>
-            </CardContent>
-          </Card>
         </div>
 
         {/* Footer */}
