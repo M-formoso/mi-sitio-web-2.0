@@ -2,6 +2,7 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Code2, Brain, Target, Users, Zap, BookOpen } from 'lucide-react';
+import ScrollStack, { ScrollStackItem } from '@/components/ui/scroll-stack';
 
 const About = () => {
   const technicalSkills = [
@@ -113,36 +114,42 @@ const About = () => {
           </div>
         </div>
 
-        {/* Technical Skills Grid */}
+        {/* Technical Skills with ScrollStack */}
         <div className="mb-16">
           <h3 className="text-2xl font-bold mb-8 text-gradient text-center flex items-center justify-center">
             <Code2 className="w-6 h-6 mr-3" />
             Stack Tecnológico
           </h3>
           
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 max-w-5xl mx-auto">
-            {technicalSkills.map((skill, index) => (
-              <Card 
-                key={skill.name}
-                className="glass border-white/10 hover:border-primary/30 transition-all duration-300 hover:scale-105 group"
-                style={{ animationDelay: `${index * 50}ms` }}
-              >
-                <CardContent className="p-4">
-                  <div className={`text-xs font-mono mb-1 bg-gradient-to-r ${getCategoryColor(skill.category)} bg-clip-text text-transparent`}>
-                    {skill.category}
-                  </div>
-                  <div className="text-text-primary font-semibold mb-2 group-hover:text-primary transition-colors">
-                    {skill.name}
-                  </div>
-                  <Badge 
-                    variant="outline" 
-                    className={`text-xs ${getLevelColor(skill.level)} border`}
-                  >
-                    {skill.level}
-                  </Badge>
-                </CardContent>
-              </Card>
-            ))}
+          <div className="max-w-2xl mx-auto" style={{ height: '600px' }}>
+            <ScrollStack
+              itemDistance={50}
+              itemScale={0.02}
+              itemStackDistance={20}
+              stackPosition="20%"
+              useWindowScroll={false}
+            >
+              {technicalSkills.map((skill, index) => (
+                <ScrollStackItem key={skill.name}>
+                  <Card className="glass border-white/10 h-full">
+                    <CardContent className="p-6 h-full flex flex-col justify-center">
+                      <div className={`text-sm font-mono mb-2 bg-gradient-to-r ${getCategoryColor(skill.category)} bg-clip-text text-transparent`}>
+                        {skill.category}
+                      </div>
+                      <div className="text-2xl text-text-primary font-bold mb-3">
+                        {skill.name}
+                      </div>
+                      <Badge 
+                        variant="outline" 
+                        className={`text-sm ${getLevelColor(skill.level)} border w-fit`}
+                      >
+                        {skill.level}
+                      </Badge>
+                    </CardContent>
+                  </Card>
+                </ScrollStackItem>
+              ))}
+            </ScrollStack>
           </div>
         </div>
 
