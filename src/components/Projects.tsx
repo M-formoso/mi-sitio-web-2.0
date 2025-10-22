@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Card, CardContent, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
-import { ExternalLink, Github, Eye } from 'lucide-react';
+import { Dialog, DialogContent } from '@/components/ui/dialog';
+import { ExternalLink, Github, Eye, X } from 'lucide-react';
 import ScrollReveal from '@/components/ui/scroll-reveal';
 import projectModule1 from '@/assets/project1-module1.png';
 import projectModule2 from '@/assets/project1-module2.png';
@@ -13,6 +14,7 @@ import projectEcommerce from '@/assets/project-ecommerce.jpg';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const projects = [
     {
@@ -98,22 +100,26 @@ const Projects = () => {
               >
                 <div className="grid lg:grid-cols-2 gap-0">
                   {/* Project Images Gallery */}
-                  <div className="relative overflow-hidden">
-                    <div className="grid grid-cols-2 gap-2 p-2">
+                  <div className="relative overflow-hidden h-full">
+                    <div className="grid grid-cols-2 gap-1 h-full">
                       {project.images.map((img, idx) => (
-                        <div key={idx} className="relative overflow-hidden rounded-lg aspect-video">
+                        <div 
+                          key={idx} 
+                          className="relative overflow-hidden cursor-pointer group/img"
+                          onClick={() => setSelectedImage(img)}
+                        >
                           <img
                             src={img}
                             alt={`${project.title} - Módulo ${idx + 1}`}
-                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                            className="w-full h-full object-cover transition-all duration-500 group-hover/img:scale-110 group-hover/img:brightness-110"
                           />
+                          <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-secondary/0 group-hover/img:from-primary/20 group-hover/img:to-secondary/20 transition-all duration-500"></div>
                         </div>
                       ))}
                     </div>
-                    <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     {/* Floating Badge */}
-                    <Badge className="absolute top-4 left-4 bg-gradient-to-r from-primary to-secondary text-white border-0">
+                    <Badge className="absolute top-4 left-4 bg-gradient-to-r from-primary to-secondary text-white border-0 z-10">
                       Destacado
                     </Badge>
                   </div>
@@ -251,6 +257,29 @@ const Projects = () => {
             ))}
         </div>
       </div>
+
+      {/* Image Modal */}
+      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
+        <DialogContent className="max-w-7xl w-[95vw] h-[95vh] p-0 bg-background/95 backdrop-blur-sm border-white/10">
+          <div className="relative w-full h-full flex items-center justify-center p-4">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute top-4 right-4 z-50 glass border-white/20 hover:border-primary/50"
+              onClick={() => setSelectedImage(null)}
+            >
+              <X className="h-4 w-4" />
+            </Button>
+            {selectedImage && (
+              <img
+                src={selectedImage}
+                alt="Vista ampliada"
+                className="max-w-full max-h-full object-contain rounded-lg"
+              />
+            )}
+          </div>
+        </DialogContent>
+      </Dialog>
     </section>
   );
 };
