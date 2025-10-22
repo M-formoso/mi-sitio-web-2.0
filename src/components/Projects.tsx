@@ -4,7 +4,10 @@ import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { ExternalLink, Github, Eye } from 'lucide-react';
 import ScrollReveal from '@/components/ui/scroll-reveal';
-import projectManagement from '@/assets/project-management-system.jpg';
+import projectModule1 from '@/assets/project1-module1.png';
+import projectModule2 from '@/assets/project1-module2.png';
+import projectModule3 from '@/assets/project1-module3.png';
+import projectModule4 from '@/assets/project1-module4.png';
 import projectInstitutional from '@/assets/project-institutional.jpg';
 import projectEcommerce from '@/assets/project-ecommerce.jpg';
 
@@ -16,7 +19,7 @@ const Projects = () => {
       id: 1,
       title: "Sistema Web de Gestión Empresarial",
       description: "Sistema web integral desarrollado para optimizar la gestión operativa de una empresa de retroexcavación. Incluye módulos de control de inventario, seguimiento de proyectos, gestión de clientes y reportes financieros. La aplicación mejora la eficiencia administrativa y proporciona una interfaz intuitiva para el manejo de recursos.",
-      image: projectManagement,
+      images: [projectModule1, projectModule2, projectModule3, projectModule4],
       tags: ["Angular", "Python", "MySQL", "FastAPI", "HTML5", "CSS3", "JavaScript"],
       demoUrl: "#",
       githubUrl: "https://github.com/M-formoso/KedikianSistem",
@@ -26,7 +29,7 @@ const Projects = () => {
       id: 2,
       title: "Página Web Institucional",
       description: "Proyecto desarrollado desde cero sin usar ningún framework, destacando con un diseño moderno y novedoso la información y conceptos de una gran empresa de importación de maderas. Se priorizó la experiencia de usuario y la presentación visual del contenido corporativo.",
-      image: projectInstitutional,
+      images: [projectInstitutional],
       tags: ["HTML5", "CSS3", "JavaScript", "Responsive Design"],
       demoUrl: "https://negretemaderas.com",
       githubUrl: "https://github.com/M-formoso/NegreteMaderas",
@@ -36,7 +39,7 @@ const Projects = () => {
       id: 3,
       title: "Ecommerce para negocio de Lanas",
       description: "Desarrollo de un ecommerce para un negocio de lanas, implementando un sistema de gestión de productos, carrito de compras y pasarela de pago. El proyecto incluye una interfaz amigable y responsive, optimizada para dispositivos móviles, mejorando la experiencia de compra en línea.",
-      image: projectEcommerce,
+      images: [projectEcommerce],
       tags: ["WordPress", "HTML5", "CSS", "Hosting", "E-commerce"],
       demoUrl: "https://morelattolanas.com",
       githubUrl: "#",
@@ -94,13 +97,19 @@ const Projects = () => {
                 onMouseLeave={() => setHoveredProject(null)}
               >
                 <div className="grid lg:grid-cols-2 gap-0">
-                  {/* Project Image */}
+                  {/* Project Images Gallery */}
                   <div className="relative overflow-hidden">
-                    <img
-                      src={project.image}
-                      alt={project.title}
-                      className="w-full h-64 lg:h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
+                    <div className="grid grid-cols-2 gap-2 p-2">
+                      {project.images.map((img, idx) => (
+                        <div key={idx} className="relative overflow-hidden rounded-lg aspect-video">
+                          <img
+                            src={img}
+                            alt={`${project.title} - Módulo ${idx + 1}`}
+                            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                          />
+                        </div>
+                      ))}
+                    </div>
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     
                     {/* Floating Badge */}
@@ -175,7 +184,7 @@ const Projects = () => {
                 {/* Project Image */}
                 <div className="relative overflow-hidden">
                   <img
-                    src={project.image}
+                    src={project.images[0]}
                     alt={project.title}
                     className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
