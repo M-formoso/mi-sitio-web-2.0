@@ -121,7 +121,7 @@ const About = () => {
             Stack Tecnológico
           </h3>
           
-          <div className="max-w-2xl mx-auto" style={{ height: '600px' }}>
+          <div className="max-w-4xl mx-auto" style={{ height: '600px' }}>
             <ScrollStack
               itemDistance={50}
               itemScale={0.02}
@@ -132,11 +132,11 @@ const About = () => {
               {technicalSkills.map((skill, index) => (
                 <ScrollStackItem key={skill.name}>
                   <Card className="glass border-white/10 h-full">
-                    <CardContent className="p-6 h-full flex flex-col justify-center">
+                    <CardContent className="p-8 h-full flex flex-col justify-center">
                       <div className={`text-sm font-mono mb-2 bg-gradient-to-r ${getCategoryColor(skill.category)} bg-clip-text text-transparent`}>
                         {skill.category}
                       </div>
-                      <div className="text-2xl text-text-primary font-bold mb-3">
+                      <div className="text-3xl text-text-primary font-bold mb-3">
                         {skill.name}
                       </div>
                       <Badge 
@@ -159,29 +159,35 @@ const About = () => {
             Cualidades Profesionales
           </h3>
           
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {professionalQualities.map((quality, index) => {
-              const Icon = quality.icon;
-              return (
-                <Card 
-                  key={quality.title}
-                  className="glass border-white/10 hover:border-primary/30 transition-all duration-500 hover:scale-105 group"
-                  style={{ animationDelay: `${index * 100}ms` }}
-                >
-                  <CardContent className="p-6">
-                    <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4 group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-6 h-6 text-white" />
-                    </div>
-                    <h4 className="text-lg font-bold text-gradient mb-2">
-                      {quality.title}
-                    </h4>
-                    <p className="text-text-secondary text-sm leading-relaxed">
-                      {quality.description}
-                    </p>
-                  </CardContent>
-                </Card>
-              );
-            })}
+          <div className="max-w-4xl mx-auto" style={{ height: '600px' }}>
+            <ScrollStack
+              itemDistance={50}
+              itemScale={0.02}
+              itemStackDistance={20}
+              stackPosition="20%"
+              useWindowScroll={false}
+            >
+              {professionalQualities.map((quality, index) => {
+                const Icon = quality.icon;
+                return (
+                  <ScrollStackItem key={quality.title}>
+                    <Card className="glass border-white/10 h-full">
+                      <CardContent className="p-8 h-full flex flex-col justify-center">
+                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
+                          <Icon className="w-8 h-8 text-white" />
+                        </div>
+                        <h4 className="text-2xl font-bold text-gradient mb-3">
+                          {quality.title}
+                        </h4>
+                        <p className="text-text-secondary text-base leading-relaxed">
+                          {quality.description}
+                        </p>
+                      </CardContent>
+                    </Card>
+                  </ScrollStackItem>
+                );
+              })}
+            </ScrollStack>
           </div>
         </div>
       </div>
