@@ -9,12 +9,11 @@ import projectModule1 from '@/assets/project1-module1.png';
 import projectModule2 from '@/assets/project1-module2.png';
 import projectModule3 from '@/assets/project1-module3.png';
 import projectModule4 from '@/assets/project1-module4.png';
+import kedikianAdminPanel from '@/assets/kedikian-admin-panel.png';
+import kedikianBalance from '@/assets/kedikian-balance.png';
 import projectInstitutional from '@/assets/project-institutional.jpg';
 import projectEcommerce from '@/assets/project-ecommerce.jpg';
 import larrosaHome from '@/assets/larrosa-home.png';
-import larrosaVehicles from '@/assets/larrosa-vehicles.png';
-import larrosaDashboard from '@/assets/larrosa-dashboard.png';
-import larrosaVehiclesAdmin from '@/assets/larrosa-vehicles-admin.png';
 
 const Projects = () => {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
@@ -23,9 +22,9 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "Sistema Web de Gestión Empresarial",
-      description: "Sistema web integral desarrollado para optimizar la gestión operativa de una empresa de retroexcavación. Incluye módulos de control de inventario, seguimiento de proyectos, gestión de clientes y reportes financieros. La aplicación mejora la eficiencia administrativa y proporciona una interfaz intuitiva para el manejo de recursos.",
-      images: [projectModule1, projectModule2, projectModule3, projectModule4],
+      title: "Kedikian - Sistema Web de Gestión Empresarial",
+      description: "Sistema web integral desarrollado para optimizar la gestión operativa de una empresa de retroexcavación. Cuenta con DOS TIPOS DE PANELES: Panel de Administrador con gestión completa de proyectos, máquinas, inventario, operarios, informes detallados, y balance financiero del sistema con métricas en tiempo real; y Panel de Operario para registro de horas trabajadas y reportes de actividad. Incluye módulos de control de inventario, seguimiento de proyectos, gestión de clientes, sistema de reportes y análisis financiero con ingresos/egresos. La aplicación mejora la eficiencia administrativa y proporciona una interfaz intuitiva para el manejo de recursos.",
+      images: [projectModule1, projectModule2, projectModule3, projectModule4, kedikianAdminPanel, kedikianBalance],
       tags: ["Angular", "Python", "MySQL", "FastAPI", "HTML5", "CSS3", "JavaScript"],
       demoUrl: "#",
       githubUrl: "https://github.com/M-formoso/KedikianSistem",
@@ -55,7 +54,7 @@ const Projects = () => {
       id: 4,
       title: "Larrosa Camiones - Sistema de Gestión de Vehículos",
       description: "Sistema integral de gestión para concesionaria de camiones que incluye sitio web público con catálogo de vehículos disponibles, filtros avanzados de búsqueda, y panel de administración completo. El sistema permite gestionar inventario, subir imágenes, controlar estados de vehículos (disponible/reservado), generar estadísticas y exportar datos. Implementa autenticación segura y dashboard con métricas en tiempo real.",
-      images: [larrosaHome, larrosaVehicles, larrosaDashboard, larrosaVehiclesAdmin],
+      images: [larrosaHome],
       tags: ["React", "Node.js", "PostgreSQL", "TypeScript", "Authentication", "Admin Panel"],
       demoUrl: "#",
       githubUrl: "#",
