@@ -52,8 +52,8 @@ const Projects = () => {
       description: "Sitio web corporativo desarrollado implementando las mejores prácticas de desarrollo web moderno y tecnologías de vanguardia. Presenta un diseño innovador y contemporáneo con efectos dinámicos y animaciones fluidas que mejoran significativamente la experiencia del usuario. La interfaz cuenta con transiciones suaves, elementos interactivos y una arquitectura responsive optimizada para todos los dispositivos. Desarrollado con React y componentes reutilizables, garantiza un rendimiento excepcional y facilidad de mantenimiento, estableciendo un nuevo estándar en presentación digital corporativa.",
       images: [b2grow1, b2grow2, b2grow3, b2grow1, b2grow2, b2grow3],
       tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Responsive Design", "Modern UI"],
-      demoUrl: "#",
-      githubUrl: "#",
+      demoUrl: "https://eco-drive-tech.lovable.app",
+      githubUrl: "https://github.com/M-formoso/B2Grow-Web",
       featured: true,
     },
   ];

@@ -8,7 +8,7 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Core Colors */
+    /* Core Colors - Dark Mode (Default) */
     --background: 210 20% 5%;
     --surface: 215 25% 8%;
     --surface-elevated: 215 20% 12%;
@@ -106,21 +106,80 @@ All colors MUST be HSL.
     --sidebar-ring: 217 91% 60%;
   }
   
-  /* Light theme overrides if needed */
+  /* Light theme overrides */
   .light {
+    /* Core Colors - Light Mode */
     --background: 0 0% 100%;
     --surface: 210 20% 98%;
     --surface-elevated: 210 20% 95%;
     --foreground: 222.2 84% 4.9%;
+    
+    /* Brand Colors remain same for consistency */
+    --primary: 217 91% 50%;
+    --primary-dark: 224 76% 40%;
+    --primary-light: 217 100% 65%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 262 83% 50%;
+    --secondary-dark: 269 83% 40%;
+    --secondary-light: 262 100% 60%;
+    --secondary-foreground: 0 0% 100%;
+    
+    /* Text Colors */
     --text-primary: 222.2 84% 4.9%;
-    --text-secondary: 215 16% 46%;
-    --text-muted: 215 13% 60%;
+    --text-secondary: 215 16% 35%;
+    --text-muted: 215 13% 50%;
+    --text-accent: 217 91% 50%;
+    
+    /* UI Elements */
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
+    --card-elevated: 210 20% 98%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    
     --muted: 210 40% 96%;
     --muted-foreground: 215 16% 46%;
+    
+    --accent: 217 91% 50%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
+    --ring: 217 91% 50%;
+    
+    /* Advanced Colors */
+    --glass-bg: 0 0% 100% / 0.8;
+    --glass-border: 222.2 84% 4.9% / 0.1;
+    --glow-primary: 217 91% 50% / 0.5;
+    --glow-secondary: 262 83% 50% / 0.5;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(217 91% 50%) 0%, hsl(262 83% 50%) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(0 0% 100%) 0%, hsl(217 91% 95%) 50%, hsl(262 83% 95%) 100%);
+    --gradient-card: linear-gradient(135deg, hsl(0 0% 100% / 0.8) 0%, hsl(217 91% 95% / 0.4) 100%);
+    --gradient-text: linear-gradient(135deg, hsl(217 91% 50%) 0%, hsl(262 83% 50%) 100%);
+    
+    /* Shadows & Effects */
+    --shadow-sm: 0 2px 4px hsl(210 20% 0% / 0.05);
+    --shadow-md: 0 4px 12px hsl(210 20% 0% / 0.08);
+    --shadow-lg: 0 8px 24px hsl(210 20% 0% / 0.12);
+    --shadow-glow: 0 0 40px hsl(217 91% 50% / 0.2);
+    --shadow-glow-secondary: 0 0 40px hsl(262 83% 50% / 0.2);
+    
+    /* Sidebar */
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 222.2 84% 4.9%;
+    --sidebar-primary: 217 91% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 222.2 84% 4.9%;
+    --sidebar-border: 214.3 31.8% 91.4%;
+    --sidebar-ring: 217 91% 50%;
   }
 }
 
@@ -132,6 +191,7 @@ All colors MUST be HSL.
   html {
     scroll-behavior: smooth;
     overflow-x: hidden;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
 
   body {
@@ -142,6 +202,7 @@ All colors MUST be HSL.
     overflow-x: hidden;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background 0.3s ease;
   }
   
   /* Modern scrollbar */
@@ -180,6 +241,7 @@ All colors MUST be HSL.
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
     border: 1px solid hsl(var(--glass-border));
+    transition: all 0.3s ease;
   }
   
   /* Animated background patterns */
@@ -291,4 +353,40 @@ All colors MUST be HSL.
 
 .animate-slide-in-right {
   animation: slideInRight 0.6s ease-out forwards;
+}
+
+/* Agregar al final del archivo index.css */
+
+/* Cursor oscuro permanente en modo claro */
+.light,
+.light *,
+.light body,
+.light html {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewport="0 0 24 24" style="fill:black;"><polygon points="0,0 0,16 6,13 9,20 12,19 9,12 16,12"/></svg>') 0 0, auto !important;
+}
+
+/* Cursor de mano oscuro para elementos clickeables */
+.light a,
+.light button,
+.light [role="button"],
+.light .cursor-pointer {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><path d="M8 4v8l2-2 2 2 2-2 2 2V4c0-1.1-.9-2-2-2h-4c-1.1 0-2 .9-2 2z" fill="black"/></svg>') 12 0, pointer !important;
+}
+
+/* Cursor de texto oscuro para inputs */
+.light input,
+.light textarea,
+.light [contenteditable="true"] {
+  cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"><line x1="12" y1="4" x2="12" y2="20" stroke="black" stroke-width="2"/></svg>') 12 12, text !important;
+  caret-color: #000 !important;
+}
+/* Forzar cursor del sistema pero asegurar visibilidad */
+.light body {
+  cursor: default;
+  /* En Windows/Linux esto será negro, en Mac será negro también */
+}
+
+.light *::before,
+.light *::after {
+  cursor: inherit;
 }

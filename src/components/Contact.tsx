@@ -8,7 +8,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Ubicación",
-      value: "Córdoba, Argentina",
+      value: "Villa Maria, Córdoba, Argentina",
       link: null,
     },
     {

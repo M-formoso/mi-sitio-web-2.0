@@ -104,7 +104,7 @@ const About = () => {
                 aplicaciones web full stack. Mi enfoque está en crear soluciones técnicas robustas que resuelvan problemas reales del negocio.
               </p>
               <p className="text-lg">
-                Formación en <span className="text-secondary font-semibold">Ingeniería de Software</span> en UTN, 
+                Formación en <span className="text-secondary font-semibold">Tecnico Universitario en Programacion</span> en UTN, 
                 complementada con experiencia práctica desarrollando proyectos reales para clientes desde el inicio de mi carrera.
               </p>
               <p className="font-mono text-sm text-accent">
