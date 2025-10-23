@@ -114,80 +114,83 @@ const About = () => {
           </div>
         </div>
 
-        {/* Technical Skills with ScrollStack */}
-        <div className="mb-16">
-          <h3 className="text-2xl font-bold mb-8 text-gradient text-center flex items-center justify-center">
-            <Code2 className="w-6 h-6 mr-3" />
-            Stack Tecnológico
-          </h3>
-          
-          <div className="max-w-4xl mx-auto" style={{ height: '600px' }}>
-            <ScrollStack
-              itemDistance={50}
-              itemScale={0.02}
-              itemStackDistance={20}
-              stackPosition="20%"
-              useWindowScroll={false}
-            >
-              {technicalSkills.map((skill, index) => (
-                <ScrollStackItem key={skill.name}>
-                  <Card className="glass border-white/10 h-full">
-                    <CardContent className="p-8 h-full flex flex-col justify-center">
-                      <div className={`text-sm font-mono mb-2 bg-gradient-to-r ${getCategoryColor(skill.category)} bg-clip-text text-transparent`}>
-                        {skill.category}
-                      </div>
-                      <div className="text-3xl text-text-primary font-bold mb-3">
-                        {skill.name}
-                      </div>
-                      <Badge 
-                        variant="outline" 
-                        className={`text-sm ${getLevelColor(skill.level)} border w-fit`}
-                      >
-                        {skill.level}
-                      </Badge>
-                    </CardContent>
-                  </Card>
-                </ScrollStackItem>
-              ))}
-            </ScrollStack>
-          </div>
-        </div>
-
-        {/* Professional Qualities */}
-        <div>
-          <h3 className="text-2xl font-bold mb-8 text-gradient text-center">
-            Cualidades Profesionales
-          </h3>
-          
-          <div className="max-w-4xl mx-auto" style={{ height: '600px' }}>
-            <ScrollStack
-              itemDistance={50}
-              itemScale={0.02}
-              itemStackDistance={20}
-              stackPosition="20%"
-              useWindowScroll={false}
-            >
-              {professionalQualities.map((quality, index) => {
-                const Icon = quality.icon;
-                return (
-                  <ScrollStackItem key={quality.title}>
+        {/* Technical Skills and Professional Qualities - Side by Side */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Technical Skills with ScrollStack */}
+          <div>
+            <h3 className="text-2xl font-bold mb-8 text-gradient text-center flex items-center justify-center">
+              <Code2 className="w-6 h-6 mr-3" />
+              Stack Tecnológico
+            </h3>
+            
+            <div className="w-full" style={{ height: '600px' }}>
+              <ScrollStack
+                itemDistance={50}
+                itemScale={0.02}
+                itemStackDistance={20}
+                stackPosition="20%"
+                useWindowScroll={false}
+              >
+                {technicalSkills.map((skill, index) => (
+                  <ScrollStackItem key={skill.name}>
                     <Card className="glass border-white/10 h-full">
                       <CardContent className="p-8 h-full flex flex-col justify-center">
-                        <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
-                          <Icon className="w-8 h-8 text-white" />
+                        <div className={`text-sm font-mono mb-2 bg-gradient-to-r ${getCategoryColor(skill.category)} bg-clip-text text-transparent`}>
+                          {skill.category}
                         </div>
-                        <h4 className="text-2xl font-bold text-gradient mb-3">
-                          {quality.title}
-                        </h4>
-                        <p className="text-text-secondary text-base leading-relaxed">
-                          {quality.description}
-                        </p>
+                        <div className="text-3xl text-text-primary font-bold mb-3">
+                          {skill.name}
+                        </div>
+                        <Badge 
+                          variant="outline" 
+                          className={`text-sm ${getLevelColor(skill.level)} border w-fit`}
+                        >
+                          {skill.level}
+                        </Badge>
                       </CardContent>
                     </Card>
                   </ScrollStackItem>
-                );
-              })}
-            </ScrollStack>
+                ))}
+              </ScrollStack>
+            </div>
+          </div>
+
+          {/* Professional Qualities */}
+          <div>
+            <h3 className="text-2xl font-bold mb-8 text-gradient text-center">
+              Cualidades Profesionales
+            </h3>
+            
+            <div className="w-full" style={{ height: '600px' }}>
+              <ScrollStack
+                itemDistance={50}
+                itemScale={0.02}
+                itemStackDistance={20}
+                stackPosition="20%"
+                useWindowScroll={false}
+              >
+                {professionalQualities.map((quality, index) => {
+                  const Icon = quality.icon;
+                  return (
+                    <ScrollStackItem key={quality.title}>
+                      <Card className="glass border-white/10 h-full">
+                        <CardContent className="p-8 h-full flex flex-col justify-center">
+                          <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center mb-4">
+                            <Icon className="w-8 h-8 text-white" />
+                          </div>
+                          <h4 className="text-2xl font-bold text-gradient mb-3">
+                            {quality.title}
+                          </h4>
+                          <p className="text-text-secondary text-base leading-relaxed">
+                            {quality.description}
+                          </p>
+                        </CardContent>
+                      </Card>
+                    </ScrollStackItem>
+                  );
+                })}
+              </ScrollStack>
+            </div>
           </div>
         </div>
       </div>
