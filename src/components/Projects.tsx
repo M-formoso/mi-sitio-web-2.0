@@ -32,7 +32,7 @@ const Projects = () => {
       description: "Sistema web integral desarrollado para optimizar la gestión operativa de una empresa de retroexcavación. Cuenta con DOS TIPOS DE PANELES: Panel de Administrador con gestión completa de proyectos, máquinas, inventario, operarios, informes detallados, y balance financiero del sistema con métricas en tiempo real; y Panel de Operario para registro de horas trabajadas y reportes de actividad. Incluye módulos de control de inventario, seguimiento de proyectos, gestión de clientes, sistema de reportes y análisis financiero con ingresos/egresos. La aplicación mejora la eficiencia administrativa y proporciona una interfaz intuitiva para el manejo de recursos.",
       images: [kedikian1, kedikian2, kedikian3, kedikian4, kedikian5, kedikian6],
       tags: ["Angular", "Python", "MySQL", "FastAPI", "HTML5", "CSS3", "JavaScript"],
-      demoUrl: "#",
+      demoUrl: "https://kedikian.site/operario/login",
       githubUrl: "https://github.com/M-formoso/KedikianSistem",
       featured: true,
     },
