@@ -42,7 +42,7 @@ const Projects = () => {
       description: "Sistema integral de gestión para concesionaria de camiones que incluye sitio web público con catálogo de vehículos disponibles, filtros avanzados de búsqueda, y panel de administración completo. El sistema permite gestionar inventario, subir imágenes, controlar estados de vehículos (disponible/reservado), generar estadísticas y exportar datos. Implementa autenticación segura y dashboard con métricas en tiempo real.",
       images: [larrosa1, larrosa2, larrosa3, larrosa4, larrosa5, larrosa6],
       tags: ["HTML5", "CSS3", "JavaScript", "PostgreSQL", "Python", "Authentication", "Admin Panel"],
-      demoUrl: "https://m-formoso.github.io/LarrosaWeb/",
+      demoUrl: "http://142.44.242.77/index.htm",
       githubUrl: "https://github.com/M-formoso/LarrosaWeb",
       featured: true,
     },
@@ -52,7 +52,7 @@ const Projects = () => {
       description: "Sitio web corporativo desarrollado implementando las mejores prácticas de desarrollo web moderno y tecnologías de vanguardia. Presenta un diseño innovador y contemporáneo con efectos dinámicos y animaciones fluidas que mejoran significativamente la experiencia del usuario. La interfaz cuenta con transiciones suaves, elementos interactivos y una arquitectura responsive optimizada para todos los dispositivos. Desarrollado con React y componentes reutilizables, garantiza un rendimiento excepcional y facilidad de mantenimiento, estableciendo un nuevo estándar en presentación digital corporativa.",
       images: [b2grow1, b2grow2, b2grow3, b2grow1, b2grow2, b2grow3],
       tags: ["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Responsive Design", "Modern UI"],
-      demoUrl: "https://eco-drive-tech.lovable.app",
+      demoUrl: "https://www.b2grow.com.ar/",
       githubUrl: "https://github.com/M-formoso/B2Grow-Web",
       featured: true,
     },
@@ -165,7 +165,7 @@ const Projects = () => {
                       className="bg-gradient-to-r from-primary to-secondary hover:from-primary-light hover:to-secondary-light text-white border-0 flex-1"
                     >
                       <Eye className="w-4 h-4 mr-2" />
-                      Ver Demo
+                      Ver
                     </Button>
                     <Button
                       variant="outline"
